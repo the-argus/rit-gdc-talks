@@ -158,6 +158,188 @@ choice, and the fact that all of these are free and open source.
 
 ---
 
+## Seriously, you can use whatever language you want
+
+Meet Nim, Rust, Zig, Jai, and Odin.
+
+---
+
+## Nim
+
+```nim
+import std/strformat
+
+type
+  Person = object
+    name: string
+    age: Natural # Ensures the age is positive
+
+let people = [
+  Person(name: "John", age: 45),
+  Person(name: "Kate", age: 30)
+]
+
+for person in people:
+  # Type-safe string interpolation,
+  # evaluated at compile time.
+  echo(fmt"{person.name} is {person.age} years old")
+```
+
+Note: nim is a compiled language. In fact, it transpiles to C, so in theory it
+should be just as fast. Sort of like C++. However, nim gets rid of many archaic
+features from C-family languages, and replaces them with python-like niceties.
+Nim notably supports hot reloading. This means you can edit your code and watch
+your game change, without having to restart it. Extremely productive tool to have
+if you have two monitors.
+
+---
+
+## Rust
+
+```rs
+// A struct with two fields
+struct Point {
+    x: f32,
+    y: f32,
+}
+
+// Structs can be reused as fields of another struct
+struct Rectangle {
+    // A rectangle can be specified by where the top left and bottom right
+    // corners are in space.
+    top_left: Point,
+    bottom_right: Point,
+}
+
+fn main() {
+    // Create struct with field init shorthand
+    let name = String::from("Peter");
+    let age = 27;
+    let peter = Person { name, age };
+
+    // Print debug struct
+    println!("{:?}", peter);
+
+    // Instantiate a `Point`
+    let point: Point = Point { x: 10.3, y: 0.4 };
+
+    // Access the fields of the point
+    println!("point coordinates: ({}, {})", point.x, point.y);
+}
+```
+
+Note: Rust is another option. It is known for being memory safe, thanks to the
+concept of the borrow checker. The borrow checker is a difficult concept to
+learn for beginner programmers, but once you figure it out it can be an
+incredible aid for writing bug-free code. Some say: "if Rust compiles, it works."
+Rust can be difficult to use for quick iteration workflows due to both its
+slow compile times and strict rules for code. However, for those of you who like
+writing "correct" code, Rust is probably for you. It can be very fast and has
+a large library ecosystem.
+
+---
+
+## Zig
+
+```ts
+const std = @import("std");
+const parseInt = std.fmt.parseInt;
+
+test "parse integers" {
+    const input = "123 67 89,99";
+    const ally = std.testing.allocator;
+
+    var list = std.ArrayList(u32).init(ally);
+    // Ensure the list is freed at scope exit.
+    // Try commenting out this line!
+    defer list.deinit();
+
+    var it = std.mem.tokenize(u8, input, " ,");
+    while (it.next()) |num| {
+        const n = try parseInt(u32, num, 10);
+        try list.append(n);
+    }
+
+    const expected = [_]u32{ 123, 67, 89, 99 };
+
+    for (expected, list.items) |exp, actual| {
+        try std.testing.expectEqual(exp, actual);
+    }
+}
+```
+
+Note: don't be fooled by the "const" and imports. This is Zig, not javascript.
+Zig is an extremely fast systems programming language which looks to replace
+C. Unlike Rust, there are few rules and iteration is quick. The language revolves
+around the comptime keyword, which enables you to run code that does crazy stuff
+like iterate over a bunch of types and choose the smallest one, or something.
+Such evaluation occurs at compile time and does not slow down your program with
+any dynamic execution.
+Notable features are builtin vector types (no need to import a math library)
+and upcoming hot code reload! Exciting. This one's my favorite.
+
+---
+
+## Jai
+
+```txt
+generate_linear_srgb :: () -> [] float {
+     srgb_table: float[SRGB_TABLE_SIZE];
+     for srgb_table {
+         << it = real_linear_to_srgb(cast(float)it_index / SRGB_TABLE_SIZE)
+     }
+     return srgb_table;
+}
+
+srgb_table: [] float = #run generate_linear_srgb(); // #run invokes the compile time execution
+
+real_linear_to_srgb :: (f: float) -> float {
+    table_index := cast(int)(f * SRGB_TABLE_SIZE);
+    return srgb_table[table_index];
+}
+```
+
+Note: Jai is a C-like language developed by Jonathan Blow, the creator of The Witness
+and Braid. It supports arbitrary compile-time code execution, just like Zig.
+Currently it is closed source and in a closed beta, but keep your eye on it.
+It is specifically designed for programming games.
+
+---
+
+## Odin
+
+```odin
+package main
+
+import "core:fmt"
+
+main :: proc() {
+ program := "+ + * 😃 - /"
+ accumulator := 0
+
+ for token in program {
+  switch token {
+  case '+': accumulator += 1
+  case '-': accumulator -= 1
+  case '*': accumulator *= 2
+  case '/': accumulator /= 2
+  case '😃': accumulator *= accumulator
+  case: // Ignore everything else
+  }
+ }
+
+ fmt.printf("The program \"%s\" calculates the value %d\n",
+            program, accumulator)
+}
+```
+
+Note: Odin is yet another low level programming language which has convenient
+bindings for graphics drivers like OpenGL, Vulkan, DirectX, etc. I am unfamiliar
+with it but it is supposedly designed for game development (or at least, 3D
+application development).
+
+---
+
 ## Modularity
 
 Load libraries when you need them.
