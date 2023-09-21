@@ -7,11 +7,10 @@ Meaning **no game engine.**
 ## Thesis
 
 The point of this talk is that making games from scratch will make you a better
-programmer. It will give you more tools in your toolbelt and open your eyes to
-how games are made in AAA studios.
+programmer. It will give you more tools in your toolbelt and free you from
+engine vendor lock-in.
 
-Note: And maybe you'll learn to ROMhack along the way. Or make games for an
-old console.
+Note: making your own engine will teach you *every* engine
 
 ---
 
@@ -21,16 +20,95 @@ Precedent.
 
 ---
 
-## Examples of Such Games
+### Super Meat Boy
 
-- Super Meat Boy
-- Braid
-- The Witness
-- Minecraft
+---
 
-Note: notice, all indie titles
+### Braid
 
-## More Examples
+---
+
+### The Witness
+
+---
+
+### Minecraft
+
+---
+
+### Don't Starve
+
+---
+
+### No Man's Sky
+
+---
+
+### Soma
+
+---
+
+### Guacamelee
+
+---
+
+### Factorio
+
+---
+
+### Prison Architect
+
+---
+
+### Thimbleweed Park
+
+---
+
+### Celeste
+
+---
+
+### Overgrowth
+
+---
+
+### Slay the Spire
+
+---
+
+### Hades
+
+---
+
+### Pyre
+
+---
+
+### FTL: Faster Than Light
+
+---
+
+### Thumper
+
+---
+
+### Papers Please
+
+---
+
+### Stardew Valley
+
+---
+
+### Teardown
+
+---
+
+### Darkest Dungeon
+
+---
+
+## A Few AAA Examples
 
 - Sunset Overdrive
 - Spiderman PS4
@@ -39,9 +117,12 @@ Note: notice, all indie titles
 - Pretty much every game made before the year 2000
 - Fortnite and any Epic in-house titles, sort of
 - EA titles developed in their in-house Frostbite Engine
+- Many more
 
 Note: But hey, you say. What about all the new games? Arent't EA, CD Projekt Red,
 and Riot all using Unreal Engine?
+
+---
 
 ## Yes, a lot of AAA studios use unreal
 
@@ -118,8 +199,7 @@ store. This can sometimes prevent an indie project from developing a unique
 graphical style. The same is true of Unity and Unreal physics. If you leave
 too many values at their defaults, it becomes obvious (at least to me) that the
 project was made in one of these engines, which breaks the sense of legitimacy
-that I feel comprehensive experiences like games need to hold. Might just be me
-though, this slide is purely editorial.
+that I feel comprehensive experiences like games need to hold.
 
 ---
 
@@ -381,6 +461,7 @@ and how writing it from scratch has helped me.
 - [Killing the Walk Monster](https://www.youtube.com/watch?v=YE8MVNMzpbo)
 - [CD Projekt Red Video Tweet about streaming](https://twitter.com/CyberpunkGame/status/1349462362764537862)
 - [Game Studios That Switched To Unreal Engine For Flexibility and New Hiring Opportunities](https://gameworldobserver.com/2022/03/22/5-game-studios-that-switched-to-unreal-engine-for-flexibility-and-new-hiring-opportunities)
+- [Make Your Own Game Engine](https://www.anthropicstudios.com/2023/09/13/make-your-own-game-engine/)
 - [Reddit Post Where People Agree With Me, That's It. This Isn't A Legitimate Source](https://www.reddit.com/r/gamedev/comments/7tj8yb/why_do_many_developers_use_inhouse_game_engines/)
 
 Note: sorry for no real bibliography, I am lazy >:)
