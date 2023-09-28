@@ -140,6 +140,12 @@ they did was mod the Unreal Engine.
 
 ---
 
+## Part Two
+
+Artistic Integrity and Control
+
+---
+
 ## The Witness's Perfect Physics
 
 - _Killing the Walk Monster_ by Casey Muratori
@@ -148,42 +154,7 @@ they did was mod the Unreal Engine.
 - Only known bugs are a level designer oversight and a menu/UI exploit
 - Excellent art/level creation tooling
 
----
-
-## Failures of From-Scratch Game Development
-
-- Cyberpunk 2077 launch bugs.
-
-Note: Yeah, sorry. So why did it happen? (next slide)
-
----
-
-## Streaming and 3D Physics
-
-Two very real and difficult problems are:
-
-- open-world content streaming
-- Physics, particularly 3D physics
-
-Note: Content streaming is an optimization problem for rendering large
-amounts of arbitrary geometry. There are ways to get around this problem, such
-as deterministic heightmap or voxel based terrain. If you want to just render
-large maps in the style of Just Cause or GTA, an engine is likely of much more
-use to you. Additionally, known 3D physics libraries ODE and Bullet are both
-pretty annoying to work with and poorly documented, in my experience.
-However, such constraints may lead to interesting game quirks, such as quake's
-strafing or minecraft's terrain. Or the Witness's physics, for that matter.
-
----
-
-## The Level Editor Problem
-
-"But you have to make your own level editor!"
-
-Note: In practice, this is basically just adding god mode and pausing the game
-while you place stuff down. The hardest part is maybe the file format, but if
-you're using a language like C you can just stream out your data directly into
-a file a lot of the time.
+Note: first, an example of control for programmers
 
 ---
 
@@ -203,7 +174,46 @@ that I feel comprehensive experiences like games need to hold.
 
 ---
 
-## Part Two
+## Artistic Integrity and Game Identity
+
+- Avoid the unity default material
+- No fighting the engine to look different than the type of games it usually makes
+- Artifacts of "bad" programming:
+  - Quake/Source strafing
+  - All speedrunning ever
+- Limitations may help
+
+---
+
+## Challenges of From-Scratch Game Development
+
+- Cyberpunk 2077 launch bugs.
+
+Note: Yeah, sorry. So why did it happen? (next slide)
+
+---
+
+## Streaming and 3D Physics
+
+Two very real and difficult problems are:
+
+- open-world content streaming
+- Physics, particularly 3D physics
+
+Note: these are examples of difficult problems that you may face when writing
+a game from scratch
+
+---
+
+## Do you need streaming? Do you need 3D physics?
+
+Note: What is appropriate for your game? If you really have a large number of
+big assets in an open world, then you should heavily consider using unreal. But
+maybe not!
+
+---
+
+## Part Three
 
 Actually doing it.
 
@@ -454,6 +464,8 @@ we'll install raylib and a C compiler on all of your computers, as well as a
 simple template project. I'm setting a timer for 30 minutes. Once that's up,
 we'll spend the rest of the time talking about a game I'm currently working on
 and how writing it from scratch has helped me.
+
+---
 
 ## References
 
