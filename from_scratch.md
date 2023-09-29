@@ -181,15 +181,14 @@ that I feel comprehensive experiences like games need to hold.
 - Artifacts of "bad" programming:
   - Quake/Source strafing
   - All speedrunning ever
+  - Wave Dashing
 - Limitations may help
 
 ---
 
-## Challenges of From-Scratch Game Development
+## Part Three
 
-- Cyberpunk 2077 launch bugs.
-
-Note: Yeah, sorry. So why did it happen? (next slide)
+Challenges
 
 ---
 
@@ -200,8 +199,9 @@ Two very real and difficult problems are:
 - open-world content streaming
 - Physics, particularly 3D physics
 
-Note: these are examples of difficult problems that you may face when writing
-a game from scratch
+Note: Streaming is the source of the infamous cyberpunk 2077 launch bugs! and
+there and many more. These are just two examples of some very difficult problems
+in gamedev. There are many others.
 
 ---
 
@@ -211,9 +211,46 @@ Note: What is appropriate for your game? If you really have a large number of
 big assets in an open world, then you should heavily consider using unreal. But
 maybe not!
 
+Note: consider the kind of problems you'll need to solve. for the most part, the
+logic of what's easy in a game engine applies also to from-scratch: if it's been
+done before, many times, it's probably not where you're going to spend most of
+your time. Usually elements unique to your game are where you will spend the
+most time. You will see less variation in the amount of time you spend on these
+game specific elements, ie. doing it in an engine or from scratch will both take
+a while. So consider what kind of boilerplate, already-solved problems you will
+need to solve. Same thing as before: open world streaming, 3D physics, the
+complexity of your asset pipeline.
+
 ---
 
-## Part Three
+## Systemic vs. Content Driven
+
+- How procedural is your game?
+- How much content needs to be in your game?
+
+Consider how composable your mechanics. A game with a lot of emergent gameplay
+from a few different, colliding systems may be easier to program than a game
+which simply has a lot of induvidual mechanics. Simple but numerous is generally
+more suited for a game engine, whereas complex but few is good for from-scratch.
+
+---
+
+## Experimental-ness
+
+Do you have a known core gameplay loop?
+
+Note: If you're making a top-down bullet hell rougelike, I would say that's a
+great candidate for making from scratch. If you're making an experimental first
+person shooter with no guns and a character who can only walk backwards, you
+probably don't want to dive headfirst into that only to discover ten hours in
+that your game idea isn't fun at all. But, if you only need that initial pass,
+consider prototyping in unity and then restarting from scratch if things work
+out. Sound tedious, but it is much easier to make a game once you've already
+made it once.
+
+---
+
+## Part Four
 
 Actually doing it.
 
@@ -238,7 +275,7 @@ also please don't tell anyone I said that.
 ## Options
 
 - C and C++: Raylib (my personal favorite)
-- C#: XNA, AKA Monogame
+- C#: Monogame
 - Python: Pygame, Arcade
 - Javascript and Typescript: PixiJS
 - For more check out [https://github.com/Calinou/awesome-gamedev#programming-frameworks-and-libraries](https://github.com/Calinou/awesome-gamedev#programming-frameworks-and-libraries)
