@@ -10,7 +10,7 @@ The point of this talk is that making games from scratch will make you a better
 programmer. It will give you more tools in your toolbelt and free you from
 engine vendor lock-in.
 
-Note: making your own engine will teach you *every* engine
+Note: making your own engine will teach you _every_ engine
 
 ---
 
@@ -247,6 +247,17 @@ that your game idea isn't fun at all. But, if you only need that initial pass,
 consider prototyping in unity and then restarting from scratch if things work
 out. Sound tedious, but it is much easier to make a game once you've already
 made it once.
+
+---
+
+## Do you like it?
+
+Note: this is the real reason I program games from scratch. I just... like it.
+I like the control. I like my whole game being text files. I like systems
+programming. If you don't like it, then go ahead and never do it, that's fine.
+Don't feel like you have to if you've got a game idea which would be a good fit
+for the method. Just do what you like. But please, try making a game from scratch
+at least once.
 
 ---
 
