@@ -491,13 +491,15 @@ code maintainability.
 
 ## On C
 
-Please try it. It seems intimidating, but once you learn what pointers are, you
-pretty much have the whole world at your command. You _will_ come out a much
-better programmer on the other side.
+- Asserts
+- Stride
+- Memory layout
 
-Note: those of you who are CS students, please pay attention in your MOPS
-course. It's a really good class, even though it's known to "mops" the floor
-with people.
+Note: Please try it. It seems intimidating, but once you learn what pointers are,
+you pretty much have the whole world at your command. You _will_ come out a much
+better programmer on the other side. those of you who are CS students, please pay
+attention in your MOPS course. It's a really good class, even though it's known
+to "mop" the floor with people.
 
 ---
 
