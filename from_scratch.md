@@ -10,7 +10,10 @@ The point of this talk is that making games from scratch will make you a better
 programmer. It will give you more tools in your toolbelt and free you from
 engine vendor lock-in.
 
-Note: making your own engine will teach you _every_ engine
+Note: making your own engine will teach you _every_ engine. Making engines is
+an actual thing that you can do and not just something for youtubers who make
+videos called WRITING MINECRAFT TETRIS AMONG US IN C WITH PROCEDURAL GENERATION
+AND AI BUT CHATGPT TELLS ME WHAT TO WRITE
 
 ---
 
@@ -164,7 +167,8 @@ Note: first, an example of control for programmers
 - Unity URP bloom and default material
 - Engine Physics
 
-Note: Unreal Engine feels like it's promising you a AAA-looking product for less
+Note: This is an example of artistic control and direction. Unreal Engine feels
+like it's promising you a AAA-looking product for less
 effort, with its deferred renderer and PBR pipeline and well-populated asset
 store. This can sometimes prevent an indie project from developing a unique
 graphical style. The same is true of Unity and Unreal physics. If you leave
@@ -174,15 +178,16 @@ that I feel comprehensive experiences like games need to hold.
 
 ---
 
-## Artistic Integrity and Game Identity
+## "Limitations" and "mistakes"
 
-- Avoid the unity default material
-- No fighting the engine to look different than the type of games it usually makes
-- Artifacts of "bad" programming:
-  - Quake/Source strafing
-  - All speedrunning ever
-  - Wave Dashing
-- Limitations may help
+- The look of beta minecraft
+- Quake/Source strafing
+- All speedrunning ever
+- Wave Dashing
+
+Note: games have bugs. games have things that are shortcuts because the developer
+didn't know how to do it properly. the variety of such bugs and limitations is
+much greater in games programmed from scratch.
 
 ---
 
@@ -192,46 +197,69 @@ Challenges
 
 ---
 
-## Streaming and 3D Physics
-
-Two very real and difficult problems are:
+## Some problems are hard :(
 
 - open-world content streaming
-- Physics, particularly 3D physics
+- efficient physics, particularly 3D physics
+- content serialization (saving game state to disk)
 
 Note: Streaming is the source of the infamous cyberpunk 2077 launch bugs! and
-there and many more. These are just two examples of some very difficult problems
-in gamedev. There are many others.
+there and many more. when deciding whether to make a game from scratch, consider
+whether you game needs these elements and whether you can use an existing generic
+solution.
 
 ---
 
-## Do you need streaming? Do you need 3D physics?
+## Some problems are unique to just your game
 
-Note: What is appropriate for your game? If you really have a large number of
-big assets in an open world, then you should heavily consider using unreal. But
-maybe not!
-
-Note: consider the kind of problems you'll need to solve. for the most part, the
-logic of what's easy in a game engine applies also to from-scratch: if it's been
-done before, many times, it's probably not where you're going to spend most of
-your time. Usually elements unique to your game are where you will spend the
-most time. You will see less variation in the amount of time you spend on these
-game specific elements, ie. doing it in an engine or from scratch will both take
-a while. So consider what kind of boilerplate, already-solved problems you will
-need to solve. Same thing as before: open world streaming, 3D physics, the
-complexity of your asset pipeline.
+Note: the logic of what's easy in a game engine applies also to from-scratch: if
+it's been done before, many times, it's probably not where you're going to spend
+most of your time. The parts of your game which have never been done before are
+often the hardest parts to get right.
 
 ---
 
 ## Systemic vs. Content Driven
 
-- How procedural is your game?
-- How much content needs to be in your game?
+Imagine programming one projectile shooting mechanic and it's fun right away.
+Then imagine trying to program a linear story game where each area has a simple
+mechanic unique to that area. And there are 50 areas.
 
-Consider how composable your mechanics. A game with a lot of emergent gameplay
-from a few different, colliding systems may be easier to program than a game
-which simply has a lot of induvidual mechanics. Simple but numerous is generally
-more suited for a game engine, whereas complex but few is good for from-scratch.
+There's inherent prototyping/design overhead to any mechanic
+
+Note: Simple but numerous is generally more suited for a game engine, whereas
+complex but few is good for from-scratch.
+
+---
+
+## Familiarity
+
+If you are on a deadline, work with tools you are familiar with.
+
+Program a game from scratch in your free time, though!
+
+Note: apologies to people who are not already making their games in their free time.
+
+---
+
+## Communication
+
+- C vs. Java and custom vs. premade engine
+- Fewer people + better communication = better for from-scratch
+
+Note: engines provide a more abstract interface, which often allows one team of
+people to not worry about the implementation details of another team's work. This
+is certainly possible but maybe more difficult when making a game from-scratch.
+
+---
+
+## Team size and deadlines
+
+- Unknown problem space = unpredictable development times
+
+Note: If a friend of mine started an indie studio and a kickstarter promising a
+game in a year, I would not suggest writing the game from scratch. I would always
+suggest doing what your team is most familiar with in these cases.
 
 ---
 
@@ -252,12 +280,36 @@ made it once.
 
 ## Do you like it?
 
+- satisfaction from implementing something yourself
+- control
+- lightweight
+
+But maybe these things don't matter to you.
+
 Note: this is the real reason I program games from scratch. I just... like it.
 I like the control. I like my whole game being text files. I like systems
 programming. If you don't like it, then go ahead and never do it, that's fine.
 Don't feel like you have to if you've got a game idea which would be a good fit
-for the method. Just do what you like. But please, try making a game from scratch
-at least once.
+for the method. Just do what you like. I do recommend making a game from scratch
+at least once, though, as a learning experience
+
+---
+
+## Engine Bugs (do you like it? cont'd)
+
+- Why is this Godot `_PhysicsProcess` not working?
+- Overlapping lights causes lag?
+- Why does player movement feel different in this one scene?
+
+Note: This slide is specifically for one thing that I really like about writing
+games from scratch, which is that _this_ stuff doesn't often happen. You don't
+have to find out that actually, your collision handlers are being called from a
+different thread. Or wait, the lightmap baking has certain performance
+properties. Or damn, I forgot I changed the friction constant for this one
+material that the stuff in the level is made out of. When I make games from
+scratch, I find that all my problems are solved by writing code. Because of course
+if you witness all the code being written, you never have code you have to learn
+about the hard way.
 
 ---
 
@@ -267,19 +319,6 @@ Actually doing it.
 
 Note: So, enough about existing examples. Let's talk about why you, indie dev,
 probably a Unity user, would want to write their games from scratch.
-
----
-
-## Simplicity
-
-- No engine means gigabytes less of an installation, getting up and running
-  faster
-- Fewer existing systems means less stuff to understand
-- Better and simpler languages than C++ and C#. Or maybe also use those
-  languages! up to you.
-
-Note: My apologies to both C++ and C#. I actually am employed to write C++ so
-also please don't tell anyone I said that.
 
 ---
 
@@ -298,7 +337,15 @@ choice, and the fact that all of these are free and open source.
 
 ## Seriously, you can use whatever language you want
 
-Meet Nim, Rust, Zig, Jai, and Odin.
+Go shopping! There are a lot of languages that exist. Making a game is a good
+way to learn them. Every thought of a cool feature you wanted in C++? It's
+probably in D (or already in C++, tbh)
+
+---
+
+## Language Spotlight
+
+Nim, Rust, Zig, Jai, and Odin.
 
 ---
 
