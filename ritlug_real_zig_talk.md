@@ -428,7 +428,7 @@ pub const std_options = struct {
 
 ## Part III : An argument for the safety of Zig
 
-Not as good as Rust, but remarkably close
+Not as safe as Rust, but remarkably close
 
 Note: This has two parts, arguing that rust is not that safe, or at least that
 it has to employ runtime abstractions to be safe, and then arguing that Zig
@@ -475,11 +475,14 @@ application level data race
 - Multithreaded is hard and borrow checker guarantees really help in this case
 - No Sync or Send traits
 - Worse mutex API, its not a smart pointer
+- No ARC in standard lib
 
 ---
 
 ### How zig wins in multithreaded UB department
 
+- All the runtime abstractions such as ARCs, mutexes, semaphores, thread pool,
+  wait groups, atomics, and RWLocks exist in Zig
 - Situations where allocators handle lifetimes can simplify multithreaded code
 - native coroutine support is coming to Zig
 
