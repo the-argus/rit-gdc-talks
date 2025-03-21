@@ -119,7 +119,7 @@ reassigned but is runtime known.
 const MyStruct = struct {
     member1: i32,    
     member2: f64,    
-}
+};
 ```
 
 ---
@@ -184,18 +184,23 @@ while (...) {
 ### .? vs. Rust unwrap
 
 ```rust
-let something = potentially_null()?; // this function returns option
+// this function returns option
+let something = potentially_null()?;
 let Some(something_else) = potentially_null else {
     return None;
 }
-// unwrap is subtly different from zig because it consumes the Option
+// unwrap is subtly different from zig
+// because it consumes the Option
 let something_or_panic = potentially_null().unwrap();
 ```
 
 ```zig
 const something = potentiallyNull() orelse return null;
-const defaulted = potentiallyNull() orelse 0; // could also be a default value
-const something_else = potentiallyNull() orelse { return null; }
+const something_else = potentiallyNull() orelse {
+    return null;
+};
+// could also be a default value
+const defaulted = potentiallyNull() orelse 0;
 const thing_or_panic = potentiallyFailing().?;
 ```
 
@@ -489,23 +494,29 @@ of my main deciding factors of zig over rust. but it's not in the language yet!
 ### How do we avoid use-after-free
 
 - Borrow checker
-- Runtime abstraction (use integers as indices into a vec + generations)
+- Runtime abstraction (indices and generations into vec)
   - `slotmap` crate
-  - allows for more than borrow checker allows
+  - allows for more than the borrow checker, minimal overhead
 - Zig says: this isnt hard, use allocators
+
+---
 
 ### Model lifetimes with ArenaAllocator and MemoryPool
 
 - Grouped lifetimes go into ArenaAllocator
 - Different lifetimes of the same type go in MemoryPool
 - Possible to replicate `slotmap` crate on top of MemoryPool
-  - This makes use after free of these objects defined behavior
+  - Use after free of these objects is then defined behavior
 
 Note: basically trust us, when you start to use this method, especially arenas,
 you start to realize how the C style method of mallocing and freeing everything
 induvidually made everything way, way harder than it needed to be, and rust and
 C++ and the concept of RAII is kind of unecessary.
 
-### AND Zig achieves this safety as a simple language
+---
 
-- This may convince some just on preference
+### Thanks for listening
+
+- Try out Zig sometime :)
+- [ziglang.org/learn](https://ziglang.org/learn)
+- [ziglang.org/documentaiton/master](https://ziglang.org/documentation/master/)
