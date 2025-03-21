@@ -50,7 +50,7 @@ From ziglang.org:
 
 ---
 
-### What is Zig *not* good at?
+### What is Zig _not_ good at?
 
 - Safety guarantees (use after free allowed!)
 - Shipping generic code over library / team boundaries
@@ -61,7 +61,7 @@ From ziglang.org:
 ### What it comes down to
 
 - Rust covers a fair bit of Zig's use case but not all
-- If you don't like using a complicated language, use Zig
+- Regardless, if you don't want to lose the simplicity of C, use Zig
 
 ---
 
@@ -94,17 +94,65 @@ const thing = @import("relative/path/to/myfile.zig").thing;
 
 ---
 
+### Meaning of `const`
+
+If the type of the `const` variable is a type or it can be determined at compile
+time, it is compile time.
+
+If `const` is dependant on something that is `var`, it just means it can't be
+reassigned but is runtime known.
+
+---
+
+### `struct` keyword
+
+```zig
+const MyStruct = struct {
+    member1: i32,    
+    member2: f64,    
+}
+```
+
+---
+
+### Files are structs
+
+```zig
+// my_struct_as_file.zig
+
+member1: i32,
+member2: f32,
+
+// main.zig
+
+const MyStruct = @import("my_struct_as_file.zig");
+
+var instance = MyStruct{};
+```
+
+---
+
 ### pub keyword
 
-- Files (structs, they're the same) are the only scope of encapsulation
+- Structs (so also files) are the only scope of encapsulation
 - Think of it like everything is `static` in C, unless you mark it `pub`
 
 ```zig
 // fileone.zig ------
 const test = 1;
+pub const pubtest = 1;
 // filetwo.zig ------
-const test = @import("fileone.zig").test; // doesn't work without pub
+const test = @import("fileone.zig").test; // doesn't work
+const pubtest = @import("fileone.zig").pubtest; // doesn't work
 ```
+
+---
+
+### Zig language demo
+
+---
+
+### Zig buildsystem / C interop demo
 
 ---
 
@@ -196,4 +244,3 @@ C++ and the concept of RAII is kind of unecessary.
 ### AND Zig achieves this safety as a simple language
 
 - This may convince some just on preference
-
