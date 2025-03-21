@@ -442,6 +442,7 @@ Rust still has the 100% guarantee in the single threaded case.
 - Buffer overwrite/read
 - Integer overflow
 - Double free and **Use-after-free**
+- Pointer aliasing
 
 Note: So the big concern here is the use after free. The other two can be solved
 with checking etc at the call site, when accessing slices or performing numeric
